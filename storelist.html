@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My BCIT Project</title>
+    <meta name="comp1800 boilerplate code" content="my bcit project">
+    <meta name="author" content="BCIT">
+
+    <!----------------------------------------------->
+    <!--  Meta tag for rendering on mobile devices -->
+    <!----------------------------------------------->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!----------------------------------------------->
+    <!-- CSS: Bootstrap, Firebase, other API -->
+    <!----------------------------------------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link rel="stylesheet" type="text/css" href="css/styling.css">
+   
+    <!------------------------>
+    <!-- Your own CSS files -->
+    <!------------------------>
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+<body>
+    <!----------------------->
+    <!--  HTML Section -->
+    <!----------------------->
+
+    <!-- Navbar at the top of the screen -->
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color:rgb(196, 196, 196);">
+        <a href="#" class="navbar-brand">
+            <img src="images/homeicon.png" height="28" alt="GroceryList">
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link active">Home</a>
+                <a href="#" class="nav-item nav-link">Lists</a>
+                <a href="#" class="nav-item nav-link">Contact Us</a>
+                <a href="#" class="nav-item nav-link">Learn More</a>
+                <a href="#" class="nav-item nav-link disabled" tabindex="-1">Help</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <a href="login.html" class="nav-item nav-link">Profile</a>
+                <a href="login.html" class="nav-item nav-link">Settings</a>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+    <br>
+
+
+    <div class="container">
+        <!-- Area of stores -->
+        <div class="row">
+            <div class="col-md-6">
+                <div id="storeJumbos" class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 style="text-align: center;">SUPERSTORE</h1>
+                        <p class="lead" style="text-align: center;">WORDS TO FILL</p>
+                        <p><a href="#" id="editListBtn" class="btn btn-primary btn-lg">Edit this list</a>
+
+                        <a href="#" style="float:right" id="storeDeleteBtn" class="btn btn-primary btn-lg">DELETE</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jumbotrons in the screen -->
+            <div class="col-md-6">
+                <div id="storeJumboAdd" class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1>ADD A STORE</h1>
+                        <p class="lead">Shopping notes</p>
+                        <p> <!-- <a href="#" id="editListBtn" class="btn btn-primary btn-lg">ADD NEW STORE</a> -->
+                            <!-- Button trigger modal -->
+                            <button id="editListBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
+                                Add Store
+                            </button>
+                            
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5>Add a Store</h5>
+                                        
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Store Name</p>
+                                        <input type="text">
+                                        <br> <br>
+                                        <p>Shopping Notes</p>
+                                        <br>
+                                        <!-- Add option to auto generate a list -->
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+    <!----------------------------------------------->
+    <!-- JS: Boostrap, Firebase, API related    -->
+    <!----------------------------------------------->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script src="scripts/firebase_api_carly.js"> </script>
+  
+    <!--------------------------------------------------------------------->
+    <!-- JS files: Your own JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
+    <script src="scripts/script.js"></script>
+
+     <!--------------------------------------------------------------------->
+    <!-- Make calls to your own JavaScript functions, here below-->
+    <!---------------------------------------------------------------------->
+
+
+</body>
+</html>

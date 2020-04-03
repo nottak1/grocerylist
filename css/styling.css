@@ -1,0 +1,29 @@
+body {
+    background-color: #cfeac9;
+}
+
+/** Jumbotrons in the store */
+#storeJumbos {
+    background-color: #62b25a;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#storeJumboAdd {
+    background-color: #62b25a;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align:center;
+}
+
+#editListBtn {
+    background-color:rgb(71, 71, 71);
+    border: 1px solid black;
+}
+
+#storeDeleteBtn {
+    background-color:rgb(71, 71, 71);
+    border: 1px solid black;
+    color:red;
+}
+
