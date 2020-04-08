@@ -19,21 +19,29 @@
     <link rel="stylesheet" type="text/css" href="css/styling.css">
 
     <script>
-        let storeName = document.querySelector("#storeName");
+        let count = 2;
         function addStore() {
+            const storeName = document.querySelector("#storeName").value;
+            console.log(storeName);
+            let thisUser = firebase.auth().currentUser.uid;
+            db.collection("stores").doc(thisUser).set({
+                store: " " + storeName
+            })
+            .then(function() {
+                console.log("document successfully written");
+            })
+            .catch(function(error) {
+                console.log("error writing document");
+            })
             
-                let thisUser = firebase.auth().currentUser.uid;
-                db.collection("users").doc(thisUser).doc(storeName).set({
-                    store: storeName
-                })
-                .then(function() {
-                    console.log("document successfully written");
-                })
-                .catch(function(error) {
-                    console.log("error writing document");
-                })
-            
+            let nextStore = document.getElementById("jumboStore" + count);
+            nextStore.style.display="block";
+            let storeTitle = document.getElementById("store" + count);
+            storeTitle.innerHTML = "" + storeName;
+            count++;
         }
+
+        
 
 
     </script>
@@ -41,7 +49,7 @@
     <!------------------------>
     <!-- Your own CSS files -->
     <!------------------------>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="css/styling.css">
 
 </head>
 <body>
@@ -83,8 +91,9 @@
             <div class="col-md-6">
                 <div id="storeJumbos" class="jumbotron jumbotron-fluid">
                     <div class="container">
-                        <h1 style="text-align: center;">SUPERSTORE</h1>
-                        <p class="lead" style="text-align: center;">WORDS TO FILL</p>
+                        <h1 id="store1" style="text-align: center;">SUPERSTORE</h1>
+                        <p class="lead" style="text-align: center;"></p>
+                        <br>
                         <p><a href="#" id="editListBtn" class="btn btn-primary btn-lg">Edit this list</a>
 
                         <a href="#" style="float:right" id="storeDeleteBtn" class="btn btn-primary btn-lg">DELETE</a>
@@ -92,6 +101,49 @@
                     </div>
                 </div>
             </div>
+
+            <div id="jumboStore2" class="col-md-6">
+                <div id="storeJumbos" class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 id="store2" style="text-align: center;"></h1>
+                        <p class="lead" style="text-align: center;"></p>
+                        <br>
+                        <p><a href="#" id="editListBtn" class="btn btn-primary btn-lg">Edit this list</a>
+
+                        <a href="#" style="float:right" id="storeDeleteBtn" class="btn btn-primary btn-lg">DELETE</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div id="jumboStore3" class="col-md-6">
+                <div id="storeJumbos" class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 id="store3" style="text-align: center;">SUPERSTORE</h1>
+                        <p class="lead" style="text-align: center;"></p>
+                        <br>
+                        <p><a href="#" id="editListBtn" class="btn btn-primary btn-lg">Edit this list</a>
+
+                        <a href="#" style="float:right" id="storeDeleteBtn" class="btn btn-primary btn-lg">DELETE</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div id="jumboStore4" class="col-md-6">
+                <div id="storeJumbos" class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 id="store4" style="text-align: center;">SUPERSTORE</h1>
+                        <p class="lead" style="text-align: center;"></p>
+                        <br>
+                        <p><a href="#" id="editListBtn" class="btn btn-primary btn-lg">Edit this list</a>
+
+                        <a href="#" style="float:right" id="storeDeleteBtn" class="btn btn-primary btn-lg">DELETE</a>
+                        
+                    </div>
+                </div>
+            </div>
+
 
             <!-- Jumbotrons in the screen -->
             <div class="col-md-6">
@@ -118,7 +170,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <p>Store Name</p>
-                                        <input id="storeName" type="text">
+                                        <input type="text" id="storeName">
                                         <br> <br>
                                         <p>Shopping Notes</p>
                                         <br>
@@ -126,7 +178,7 @@
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" onclick="addStore()">Save changes</button>
+                                    <button type="button" class="btn btn-primary" onclick="addStore()" data-dismiss="modal">Save changes</button>
                                     </div>
                                 </div>
                                 </div>
