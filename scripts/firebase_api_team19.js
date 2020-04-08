@@ -3,15 +3,18 @@
         // Replace the configuration with YOUR project's API information
         // copied from the firebase console (settings) of your project.
         //---------------------------------------------------------------------
+            // Your web app's Firebase configuration
+        // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyAACI1zKA1R4jnlB-alxRBbqVCx5zaxzYo",
-            authDomain: "grocerylist-3592d.firebaseapp.com",
-            databaseURL: "https://grocerylist-3592d.firebaseio.com",
-            projectId: "grocerylist-3592d",
-            storageBucket: "grocerylist-3592d.appspot.com",
-            messagingSenderId: "946216088875",
-            appId: "1:946216088875:web:f15b2247f54902b45e816e"
-          };
+          apiKey: "AIzaSyD_uKa_8UQJtp1W25uEwx_t-Wjeek5miAw",
+          authDomain: "grocerylist-fdb72.firebaseapp.com",
+          databaseURL: "https://grocerylist-fdb72.firebaseio.com",
+          projectId: "grocerylist-fdb72",
+          storageBucket: "grocerylist-fdb72.appspot.com",
+          messagingSenderId: "370562828425",
+          appId: "1:370562828425:web:03c1eb87512a7e8e9d9e58"
+        };
+
           //------------------------------------------------
           // Initialize Firebase and Firestore reference
           // Do not delete!

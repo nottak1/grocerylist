@@ -17,6 +17,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link rel="stylesheet" type="text/css" href="css/styling.css">
+
+    <script>
+        let storeName = document.querySelector("#storeName");
+        function addStore() {
+            
+                let thisUser = firebase.auth().currentUser.uid;
+                db.collection("users").doc(thisUser).doc(storeName).set({
+                    store: storeName
+                })
+                .then(function() {
+                    console.log("document successfully written");
+                })
+                .catch(function(error) {
+                    console.log("error writing document");
+                })
+            
+        }
+
+
+    </script>
    
     <!------------------------>
     <!-- Your own CSS files -->
@@ -98,7 +118,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <p>Store Name</p>
-                                        <input type="text">
+                                        <input id="storeName" type="text">
                                         <br> <br>
                                         <p>Shopping Notes</p>
                                         <br>
@@ -106,7 +126,7 @@
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-primary" onclick="addStore()">Save changes</button>
                                     </div>
                                 </div>
                                 </div>
@@ -132,7 +152,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <script src="scripts/firebase_api_carly.js"> </script>
+    <script src="scripts/firebase_api_team19.js"> </script>
   
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
