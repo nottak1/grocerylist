@@ -19,30 +19,6 @@
     <link rel="stylesheet" type="text/css" href="css/styling.css">
 
     <script>
-        let count = 2;
-        function addStore() {
-            const storeName = document.querySelector("#storeName").value;
-            console.log(storeName);
-            let thisUser = firebase.auth().currentUser.uid;
-            db.collection("stores").doc(thisUser).set({
-                store: " " + storeName
-            })
-            .then(function() {
-                console.log("document successfully written");
-            })
-            .catch(function(error) {
-                console.log("error writing document");
-            })
-            
-            let nextStore = document.getElementById("jumboStore" + count);
-            nextStore.style.display="block";
-            let storeTitle = document.getElementById("store" + count);
-            storeTitle.innerHTML = "" + storeName;
-            count++;
-        }
-
-        
-
 
     </script>
    
@@ -110,7 +86,7 @@
                         <br>
                         <p><a href="#" id="editListBtn" class="btn btn-primary btn-lg">Edit this list</a>
 
-                        <a href="#" style="float:right" id="storeDeleteBtn" class="btn btn-primary btn-lg">DELETE</a>
+                        <a href="#" style="float:right" id="storeDeleteBtn" class="btn btn-primary btn-lg" onclick="deleteStore2()">DELETE</a>
                         
                     </div>
                 </div>
@@ -124,7 +100,7 @@
                         <br>
                         <p><a href="#" id="editListBtn" class="btn btn-primary btn-lg">Edit this list</a>
 
-                        <a href="#" style="float:right" id="storeDeleteBtn" class="btn btn-primary btn-lg">DELETE</a>
+                        <a href="#" style="float:right" id="storeDeleteBtn" class="btn btn-primary btn-lg" onclick="deleteStore3()">DELETE</a>
                         
                     </div>
                 </div>
@@ -138,7 +114,7 @@
                         <br>
                         <p><a href="#" id="editListBtn" class="btn btn-primary btn-lg">Edit this list</a>
 
-                        <a href="#" style="float:right" id="storeDeleteBtn" class="btn btn-primary btn-lg">DELETE</a>
+                        <a href="#" style="float:right" id="storeDeleteBtn" class="btn btn-primary btn-lg" onclick="deleteStore4()">DELETE</a>
                         
                     </div>
                 </div>
@@ -173,6 +149,7 @@
                                         <input type="text" id="storeName">
                                         <br> <br>
                                         <p>Shopping Notes</p>
+                                        <input type="text">
                                         <br>
                                         <!-- Add option to auto generate a list -->
                                     </div>
@@ -209,7 +186,7 @@
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
-    <script src="scripts/script.js"></script>
+    <script src="scripts/scripts.js"></script>
 
      <!--------------------------------------------------------------------->
     <!-- Make calls to your own JavaScript functions, here below-->
