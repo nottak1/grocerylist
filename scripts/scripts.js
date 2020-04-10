@@ -21,6 +21,7 @@ function addStore() {
     let storeTitle = document.getElementById("store" + count);
     storeTitle.innerHTML = "" + storeName;
     count++;
+    document.getElementById("storeName").value="";
 }
 
 
