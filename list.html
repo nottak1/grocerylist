@@ -27,6 +27,36 @@
     <!----------------------->
     <!--  HTML Section -->
     <!----------------------->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a href="#" class="navbar-brand">
+            <img src="images/homeicon.png" height="28" alt="GroceryList">
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link active">Home</a>
+                <a href="storelist.html" class="nav-item nav-link">Lists</a>
+                <a href="#" class="nav-item nav-link">Contact Us</a>
+                <a href="#" class="nav-item nav-link">Learn More</a>
+                <a href="#" class="nav-item nav-link disabled" tabindex="-1">Help</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <a href="login.html" class="nav-item nav-link">Login</a>
+                <a href="login.html" class="nav-item nav-link">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <h1 style="text-align: center;">Super Store</h1>
+    <h2 style="text-align: center;">Item&emsp;&emsp;&emsp;&emsp;Quantity</h2>
+    <br>
+    <div><ul id="storeList" style="text-align: center;"></ul></div>
+    <p style="text-align: center;" ><button type="button" id="editListBtn" class="btn btn-primary btn-lg" onclick="addItem();">Add item</button></p>
+
+
 
     <nav class="navbar navbar-expand-md navbar-light" style="background-color: rgb(85, 172, 92);">
         <a href="#" class="navbar-brand">
@@ -66,7 +96,26 @@
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
-    <script src="scripts/scripts.js"></script>
+    <script src="scripts/script.js"></script>
+    <script> 
+    function addItem(){
+        var item = prompt("please enter an item");
+            if (item!=null){
+                var quant = prompt("please enter a quantity");
+                check=isNaN(quant);
+                if (!check&&quant!=null){
+                    var ul = document.getElementById("storeList");
+                    var li = document.createElement("li");
+                    li.innerHTML = item + "&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" + quant + "&emsp;&emsp;&emsp;&emsp;&emsp;"+'<button id="delButton" onclick="Delete(this);">Delete</button>';
+                    ul.appendChild(li);
+                }
+            }
+
+    }
+    function Delete(currentEl){
+  currentEl.parentNode.parentNode.removeChild(currentEl.parentNode);
+  }
+    </script>
 
      <!--------------------------------------------------------------------->
     <!-- Make calls to your own JavaScript functions, here below-->
